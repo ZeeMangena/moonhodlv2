@@ -3,17 +3,21 @@ export const initialState = {
 	hidden: [],
 };
 
-//Selector (*KEY*)
-//export const getBasketTotal = (basket) =>
-//basket?.reduce((amount, item) => item.price + amount, 0);
 
 const reducer = (state, action) => {
 	switch (action.type) {
-		//case :{}
-
-		//return {
-		//...state,
-		//};
+		case "ADD_TO_HIDDEN
+      			return {
+        			//State Altering action below
+        			...state,
+        			basket: [...state.basket, action.item],
+       				 //basket+=item
+      				};
+		case "CLEAR_HIDDEN"
+			return {
+        			...state,
+        			hidden: [],
+				};
 
 		default:
 			return state; //in case the app action request matches none of the know commands
