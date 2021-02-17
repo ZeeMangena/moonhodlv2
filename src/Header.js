@@ -5,9 +5,12 @@ import { useStateValue } from "./StateProvider";
 
 function Header() {
 	const [{ hidden }] = useStateValue();
-	//user in state. Via backend? Defintely not my usual Firebase Auth implemantation
-
-	//OnClick function that clears the hidden list. Delete server data via the API??
+	const clearHidden = () => {
+    		//Data Layer Level action (through reducer)
+    	dispatch({
+      		type: "CLEAR_HIDDEN",
+    	});
+  };
 
 	return (
 		<div className="header">
@@ -17,7 +20,7 @@ function Header() {
 
 			<div className="header__nav">
 				<div className="header__option">
-					<button className="header__unhide">Unhide All Coin</button>
+					<button onClick={clearHidden} className="header__unhide">Unhide All Coin</button>
 				</div>
 			</div>
 		</div>
